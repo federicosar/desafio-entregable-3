@@ -1,7 +1,7 @@
 class Saludos {
-    contructor(pais, guiño, moneda, idioma) {
+    constructor(pais, guinio, moneda, idioma) {
         this.pais = pais;
-        this.guiño = guiño;
+        this.guinio = guinio;
         this.moneda = moneda;
         this.idioma = idioma;
     }
@@ -23,34 +23,25 @@ let contenidoDelInput = document.getElementById("primerInput")
 let divSaludos = document.getElementById("divSaludos")
 
 
-// function saludar() {
-
-//     console.log(saludoUno)
-// }
 
 contenidoDelInput.addEventListener('change', () => {
 
-    let buscador = contenidoDelInput.value 
-
+    let buscador = contenidoDelInput.value
     console.log(buscador.toLowerCase())
+    let monedaEnComun = saludos.filter(pais => pais.guinio.includes(buscador.toLowerCase()))
 
-    let monedaEnComun = saludos.filter(Saludos => pais.guiño.includes(buscador.toLowerCase()))
-
-    monedaEnComun.forEach(saludos => {
+    monedaEnComun.forEach(saludos1 => {
         divSaludos.innerHTML += `
-        
-        <div>
-        
-            <h2>pais guiño: ${saludos.moneda}   </h2>
-
-            <p>guiño : ${saludos.guiño}  </p>
-        
-            <p>moneda : ${saludos.moneda}  </p>
-        
-            <p>idioma : ${saludos.idioma}  </p> 
-        
-        </div>`
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">Pais: ${saludos1.pais}</h5>
+                <p>Saludo: ${saludos1.guinio} </p>
+                <p>Moneda: ${saludos1.moneda} </p>
+                <p>Idioma: $${saludos1.idioma} </p>
+            </div>
+        </div>
+        `
 
     })
 
-})    
+})
